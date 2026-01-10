@@ -3,6 +3,7 @@ import { UserService } from "./user.service";
 import { AuthGuard } from "@nestjs/passport";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { CreateUserDto } from "./dto/create-user.dto";
+import { Public } from "src/public.decorator";
 
 @UseGuards(AuthGuard("jwt"))
 @Controller("user")
@@ -11,6 +12,7 @@ export class UserController{
         private readonly userService:UserService
     ){}
 
+    @Public()
     @Post()
     create(@Body() dto:CreateUserDto){
         return this.userService.create(dto);
