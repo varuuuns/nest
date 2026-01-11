@@ -1,14 +1,14 @@
 // this is the traffic controller
 
-import { Body, Controller, Post } from "@nestjs/common";
-import { AuthService } from "./auth.service";
+import { Body, Controller, Post } from '@nestjs/common';
+import { AuthService } from './auth.service';
 
-@Controller("auth")
+@Controller('auth')
 export class AuthController {
-    constructor(private readonly authService: AuthService) { }
+    constructor(private readonly authService: AuthService) {}
 
-    @Post("login")
-    login(@Body() body:{email:string, password:string}) {
+    @Post('login')
+    login(@Body() body: { email: string; password: string }) {
         return this.authService.login(body.email, body.password);
     }
 }

@@ -1,13 +1,13 @@
-import { Module } from "@nestjs/common";
-import { RedisModule as NestRedisModule } from "@nestjs-modules/ioredis"
+import { Module } from '@nestjs/common';
+import { RedisModule as NestRedisModule } from '@nestjs-modules/ioredis';
 
 @Module({
-    imports:[
+    imports: [
         NestRedisModule.forRoot({
-            type:"single",
-            url:"redis://localhost:6379"
-        })
+            type: 'single',
+            url: 'redis://localhost:6379',
+        }),
     ],
-    exports:[NestRedisModule]
+    exports: [NestRedisModule],
 })
-export class RedisModule{};
+export class RedisModule {}
