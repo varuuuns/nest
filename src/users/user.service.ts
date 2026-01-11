@@ -50,8 +50,6 @@ export class UserService {
 
     async remove(id: string) {
         const user = await this.userModel.findByIdAndDelete(id);
-
         if (!user) throw new NotFoundException('user not found');
-        return { msg: 'user deleted' };
     }
 }

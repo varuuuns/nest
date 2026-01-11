@@ -3,6 +3,7 @@ import {
     Controller,
     Delete,
     Get,
+    HttpCode,
     Param,
     Patch,
     Post,
@@ -43,6 +44,7 @@ export class UserController {
 
     @UseGuards(AuthGuard('jwt'))
     @Delete(':id')
+    @HttpCode(204)
     remove(@Param('id') id: string) {
         return this.userService.remove(id);
     }
